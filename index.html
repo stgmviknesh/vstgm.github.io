@@ -48,18 +48,6 @@
                     }
                 });
             }, loadTime);
-            //     $.ajax({
-            //         url: url,
-            //         method: "GET",
-            //         success: function (response) {
-            //             $("#output").html(response.title);
-            //         },
-            //         error: function () {
-            //             $("#output").html("Error loading data");
-            //         }
-            //     });
-            // }, loadTime);
-            // loadTime += 1000;
         }
         setInterval(loadData, 2500); // call loadData every  seconds
         setInterval(function () {
