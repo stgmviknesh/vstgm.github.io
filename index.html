@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="English">
+< !DOCTYPE html >
+    <html lang="English">
 
-<head>
-    <meta charset="UTF-8">
-    <title>AJAX Example</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+        <head>
+            <meta charset="UTF-8">
+                <title>VSTGM AJAX Example</title>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        </head>
 
-<body>
-    <script language="javascript" type="text/javascript">
-        var generateUniqueID = function () {
+        <body>
+            <script language="javascript" type="text/javascript">
+                var generateUniqueID = function () {
     return "v2-" + Date.now() + "-" + (Math.floor(Math.random() * (9e12 - 1)) + 1e12);
 };
 var firstHiddenTime = -1;
@@ -961,64 +961,50 @@ var profiler = new RProfiler();
 window["RProfiler"] = profiler;
 window["WindowEvent"] = WindowEvent;
 profiler.dispatchCustomEvent("GlimpseLoaded");
-         console.log('in cp script');
-         try{
-            RProfiler && console.log("inside block");
-            RProfiler.addInfo('indicator', 'number', 100);
-            RProfiler.addInfo('tracepoint', 'vt', 'no-cache');
-            RProfiler.addInfo('pageGroup', 'p2');
-            RProfiler.addInfo('variation', 'v2');
-         }
-         catch(e){
-           console.log('error');  
-         }
-      }
-      window.RProfiler ? _rumMarkComplete() : window.addEventListener("GlimpseLoaded", _rumMarkComplete)
-      window.addEventListener('unload', _rumMarkComplete());
-    </script>
-    <h1>AJAX Example</h1>
-    <p id="output"></p>
-    <button onclick="loadData()">Load Data</button>
-    <script>
-        function loadData() {
+            </script>
+            <h1>AJAX Example</h1>
+            <p id="output"></p>
+            <button onclick="loadData()">Load Data</button>
+            <script>
+                function loadData() {
             var loadTime = 500; // initial load time is 0.5 seconds
-            var randomNum = Math.floor(Math.random() * 100) + 1; // generate random number between 1 and 100
-            var url = "https://jsonplaceholder.typicode.com/posts/" + randomNum; // construct URL with random number
-            $("#output").html("Loading data...");
-            setTimeout(function () {
-                $.ajax({
-                    url: url,
-                    method: "GET",
-                    success: function (response) {
-                        // Use Google Translate API to translate the title to English
-                        var title = response.title;
-                        var sourceLang = 'auto';
-                        var targetLang = 'en';
-                        var translateUrl = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' + sourceLang + '&tl=' + targetLang + '&dt=t&q=' + encodeURI(title);
-                        $.ajax({
-                            url: translateUrl,
-                            method: "GET",
-                            dataType: 'json',
-                            success: function (data) {
-                                var englishTitle = data[0][0][0];
-                                $("#output").html(englishTitle);
-                            },
-                            error: function () {
-                                $("#output").html("Error loading the Google Translate data");
-                            }
-                        });
-                    },
-                    error: function () {
-                        $("#output").html("Error loading the data from https://jsonplaceholder.typicode.com/ site");
-                    }
-                });
+                var randomNum = Math.floor(Math.random() * 100) + 1; // generate random number between 1 and 100
+                var url = "https://jsonplaceholder.typicode.com/posts/" + randomNum; // construct URL with random number
+                $("#output").html("Loading data...");
+                setTimeout(function () {
+                    $.ajax({
+                        url: url,
+                        method: "GET",
+                        success: function (response) {
+                            // Use Google Translate API to translate the title to English
+                            var title = response.title;
+                            var sourceLang = 'auto';
+                            var targetLang = 'en';
+                            var translateUrl = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' + sourceLang + '&tl=' + targetLang + '&dt=t&q=' + encodeURI(title);
+                            $.ajax({
+                                url: translateUrl,
+                                method: "GET",
+                                dataType: 'json',
+                                success: function (data) {
+                                    var englishTitle = data[0][0][0];
+                                    $("#output").html(englishTitle);
+                                },
+                                error: function () {
+                                    $("#output").html("Error loading the Google Translate data");
+                                }
+                            });
+                        },
+                        error: function () {
+                            $("#output").html("Error loading the data from https://jsonplaceholder.typicode.com/ site");
+                        }
+                    });
             }, loadTime);
         }
-        setInterval(loadData, 2500); // call loadData every  seconds
-        setInterval(function () {
-            location.reload();
+                setInterval(loadData, 2500); // call loadData every  seconds
+                setInterval(function () {
+                    location.reload();
         }, 25000); // reload page every 25 seconds
-    </script>
-</body>
+            </script>
+        </body>
 
-</html>
+    </html>
